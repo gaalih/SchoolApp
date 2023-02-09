@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import SettingScreen from "../screens/SettingScreen";
 import PaymentScreen from "../screens/PaymentScreen";
+import { HomeStackScreen } from "../components/StackPages";
 
 const Tab = createBottomTabNavigator();
 const Tabs = () => {
@@ -13,9 +14,14 @@ const Tabs = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: "#16a34a",
         tabBarActiveBackgroundColor: "#fff",
-        tabBarStyle: { paddingTop: 15, borderTopColor: "#fff" },
+        tabBarStyle: {
+          paddingTop: 5,
+          borderTopColor: "#fff",
+          paddingBottom: 5,
+        },
         tabBarBadgeStyle: {
           marginTop: -15,
           backgroundColor: "#f59e0b",
@@ -23,8 +29,8 @@ const Tabs = () => {
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={HomeScreen}
+        name="HomeStackScreen"
+        component={HomeStackScreen}
         options={{
           tabBarLabel: "home",
           tabBarIcon: ({ color, size }) => (
@@ -42,6 +48,16 @@ const Tabs = () => {
             <Entypo name="credit" size={size} color={color} />
           ),
           tabBarBadge: 3,
+        }}
+      />
+      <Tab.Screen
+        name="Group"
+        component={SettingScreen}
+        options={{
+          tabBarLabel: "group",
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="chat" size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen

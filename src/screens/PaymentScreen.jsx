@@ -3,13 +3,6 @@ import { View, Text, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const PaymentScreen = () => {
-  const navigation = useNavigation();
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
-
   return (
     <SafeAreaView className="flex-1 relative">
       <View>
